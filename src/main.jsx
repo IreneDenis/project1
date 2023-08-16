@@ -10,12 +10,13 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";                                       
         
 import { PrimeReactProvider } from 'primereact/api';
-import Login from './components/Login.jsx';
+// import Login from './components/Login.jsx';
+import Homepage from './components/Homepage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <PrimeReactProvider>
-    <Login/>
+    <Homepage/>
     </PrimeReactProvider>
   </React.StrictMode>,
 )

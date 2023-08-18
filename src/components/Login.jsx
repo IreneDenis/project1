@@ -6,13 +6,15 @@ import { useState } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { TriStateCheckbox } from 'primereact/tristatecheckbox';
+import { useNavigate } from 'react-router-dom';
 
 const Login=()=> {
+  const navigate = useNavigate();
     const [value,setValue]=useState("");
   return (
     <div className="bg-blue-500 h-screen w-full flex justify-center flex-col items-center ">
         <div className="flex flex-row h-4/6 w-5/6 bg-white border border-black">
-            <div className="w-3/6 h-full flex border border-black">
+            <div className="w-2/4 h-full flex border border-black">
                 <img src={LP} alt=''/>
             </div>
             <div className="w-3/6 h-full flex flex-col border border-black justify-center items-center">
@@ -30,7 +32,7 @@ const Login=()=> {
                   <div className="flex justify-start items-center "><h4>Remember me</h4></div>
                   <div className="flex justify-end items-center ml-16 hover:cursor-pointer text-blue-500 "><a href=''> <h5>Forgot Password?</h5></a></div>
                 </div>
-                <div className="flex mt-4 w-32 h-10 "><Button label="Sign in" /></div>
+                <div className="flex mt-4 w-32 h-10 "><Button label="Sign in" onClick={()=>navigate("/Homepage")} /></div>
                 
             </div>
         </div>

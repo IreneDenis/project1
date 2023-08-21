@@ -25,7 +25,7 @@ const Detailpage = () => {
         console.log(data.productUrl[0].img1
             )
       });
-  },[]);
+  },);
 
   return (
     <div className="flex bg-blue-500 h-screen w-full flex-col ">

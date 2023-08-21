@@ -7,26 +7,28 @@ import { useNavigate } from 'react-router-dom';
 
 const Customdiv=(props)=> {
     const {data}=props;
-    const navigate=useNavigate();
+    const navigate=useNavigate(); 
     const [value,setValue]=useState("");
   return (
-    <div className="flex flex-col bg-slate-800 h-80 w-72 justify-between">
-        <div className='flex h-2/3 w-full bg-green-600 border border-black'><a href={`/Detailpage/${data.id}`}><img src={data.productUrl[0].img1} alt=''/></a>
+    <div className="flex border border-black flex-col bg-slate-900 h-96 w-72 justify-between">
+         <div className='flex h-2/3 w-3/4 bg-white border border-black hover:cursor-pointer'><a href={`/Detailpage/${data.id}`}>
+          <img src={data.productUrl[0].img1} alt='pc'/></a>
           
         </div>
-        <div className='flex flex-row h-1/6 w-full  bg-red-600'>
-            <div className='flex h-full w-2/3'>{data?.title}</div>
-            <div className='flex h-full w-1/6'>price:${data?.price}.00</div>
+        <div className='flex flex-row h-1/6 w-full  bg-white font-bold'>
+            <div className='flex h-2/4 w-full '>{data?.title}</div>
+            <div className='flex h-2/4 w-2/6 mr-10'>price:Tsh{data?.price}</div>
         </div>
         <div className='flex '><Rating value={value} onChange={(e) => setValue(e.value)} /></div>
-        <div className='flex justify-center '>
+        <div className='flex justify-center w-80 '>
          <button
-            className='items-center bg-white text-black animate-pulse'
-            label="Add to Cart"
-            onClick={()=>navigate()}>
+            className='items-center bg-green-950 text-white animate-pulse rounded-xl w-1/3'
+            onClick={()=>navigate()}>Add to Cart
          </button>
 
-        </div>
+        </div> 
+
+        
     </div>
   )
 }

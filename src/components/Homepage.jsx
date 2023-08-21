@@ -7,20 +7,22 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Customdiv from './Customdiv';
+import { data } from 'autoprefixer';
 
 const Homepage=()=> {
+  
+const [data,setData]=useState();
   useEffect(()=>{
-    axios.get("https://192.168.150.152:3000/products/retrieve-products").then((res)=>{
-        console.log(res);
+    axios.get("http://192.168.150.152:3000/products/retrieve-products").then((res)=>{
+        console.log(res.data);
         setData(res.data);
     });
 
 },[]);
 
 
-const [data,setData]=useState();
   return (
-    <div className="flex bg-blue-500 h-screen w-full flex-col  ">
+    <div className="flex bg-white h-screen w-full flex-col  ">
       <div className="flex flex-row h-8 w-full bg-blue-900 font-bold" >
         <div className="flex items-center font-bold "><span className="pi pi-phone  ">+001234567890</span></div>
         <div className="flex items-center justify-center h-full w-5/6 font-bold"><h5>Get 50% off on Selected items  | Shop Now</h5></div>
@@ -32,7 +34,7 @@ const [data,setData]=useState();
         </div>
 
       </div>
-      <div className="flex bg-white w-full h-16 flex-row text-blue-700  ">
+      <div className="flex bg-white w-full h-10 flex-row text-blue-700  ">
         <div className="flex items-center justify-start  font-bold text-lg"><i className="pi pi-shopping-cart" style={{ fontSize: '2.3rem', }}></i><h5>Shopcart</h5></div>
         <div className="flex items-center text-lg font-bold ml-20 "><a href=''><h5>Categories</h5></a>
           <span className="pi pi-angle-down"></span>
@@ -51,12 +53,12 @@ const [data,setData]=useState();
           <div className="flex w-full h-5/6 text-black font-bold text-7xl font-serif"><h1>Grab Upto 50% off on Selected Products</h1></div>
           <div className="flex h-full w-2/6 items-center justify-center">
             <div className="flex bg-teal-800 w-36 h-10 justify-center text-xl items-center"><button className='flex rounded-lg'>Buy Now</button></div>
-          </div>
+          </div> 
         </div>
         <div className="flex h-full w-2/5 "><img src={HP} alt=''/></div>
       </div>
-      <div className="flex h-12 w-full flex-col">
-        <div className="flex bg-blue-900 h-10 w-full flex-row items-center">
+      <div className="flex h-auto border border-blue-700 w-full flex-col">
+        <div className="flex bg-blue-900 h-8 w-full flex-row items-center">
           <div className="flex flex-row ">
             <div className='flex items-center text-lg font-bold ml-10'><a href=''><h5>ProductType</h5></a>
              <span className="pi pi-angle-down"></span>
@@ -75,11 +77,18 @@ const [data,setData]=useState();
             <span className="pi pi-angle-down"></span>
           </div>
         </div>
-        <div className="flex w-full h-auto border border-black">
-         <div className="grid grid-cols-2 gap-3 w-auto sm:grid-cols-2 md:grid-col-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6  ">
-           {data?.map((post,index)=>{
-            <Customdiv data={post}/>
-           })}
+        <div className="flex w-auto h-auto border bg-green-600 border-black">
+         <div className="h-full  grid grid-cols-2 gap-3 w-auto sm:grid-cols-2 bg-white md:grid-col-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6  ">
+          
+          {data?.map((data,index)=>{
+            return(
+              <Customdiv key={index} data={data}/>
+
+            )
+            
+          }  
+          
+          )}
 
 
           </div>

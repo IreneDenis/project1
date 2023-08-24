@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React from "react";
 import "primeicons/primeicons.css";
@@ -9,6 +10,7 @@ import { Rating } from "primereact/rating";
 import { useValue } from "react";
 import Smalldiv from "./Smalldiv";
 
+
 // eslint-disable-next-line react-refresh/only-export-components
 const Detailpage = () => {
   const { id } = useParams();
@@ -19,13 +21,13 @@ const Detailpage = () => {
   useEffect(() => {
 
     axios
-      .get(`http://192.168.150.152:3000/products/${id}/product`)
+      .get(`http://192.168.150.152:3333/products/${id}/product`)
       .then((res) => {
         setData(res.data);
-        console.log(data.productUrl[0].img1
+        console.log(data.productUrl[0]
             )
       });
-  },);
+  },[]);
 
   return (
     <div className="flex bg-blue-500 h-screen w-full flex-col ">
@@ -94,14 +96,14 @@ const Detailpage = () => {
       </div>
       <div className="flex h-96 w-5/6 bg-orange-300 flex-row mt-2 justify-center items-center">
         <div className="flex border border-black h-full w-full ">
-          <img src={data?.productUrl[0].img1} alt="pc" className="flex w-full h-full"/>
+          <img src={data?.productUrl[0]} alt="pc" className="flex w-full h-full"/>
         </div>
         <div className="flex flex-col w-full h-full bg-gray-900">
-          <div className="flex w-full h-44 bg-red-400 font-bold font-sans">
+          <div className="flex w-full h-44 bg-orange-300 font-bold font-sans text-5xl">
             {" "}
             {data?.title}
           </div>
-          <div className="flex w-full h-28 bg-orange-400 font-bold font-sans flex-row  ">
+          <div className="flex w-full h-28 bg-orange-300 font-bold font-sans flex-row  ">
             <div className="flex h-full  w-3/6 items-center">
               rating:
               <Rating value={value} onChange={(e) => setValue(e.value)} />
@@ -110,13 +112,13 @@ const Detailpage = () => {
               price: Tsh.{data?.price}
             </div>
           </div>
-          <div className="flex w-full h-32 bg-lime-500 font-bold font-sans items-center justify-between flex-row">
+          <div className="flex w-full h-32 bg-orange-300 font-bold font-sans items-center justify-between flex-row">
             <div className="flex ">Get a discount of {data?.discount}%</div>
             <div className="flex mr-4">
               stocks remain: {data?.productInStock}
             </div>
           </div>
-          <div className="flex w-full h-52 bg-gray-900 flex-row">
+          <div className="flex w-full h-52 bg-blue-900 flex-row">
             <div className="flex w-full justify-end items-center">
               <button
                 className="bg-teal-950 h-10 w-9 border border-black rounded-xl"
@@ -139,7 +141,7 @@ const Detailpage = () => {
               </button>
             </div>
           </div>
-          <div className="flex w-full h-52 bg-red-900 flex-row ">
+          <div className="flex w-full h-52 bg-gray-900 flex-row ">
             <div className="flex text-black w-full justify-center items-center">
               <button className="bg-teal-950 h-10 w-32 border border-black rounded-xl">
                 Buy Now

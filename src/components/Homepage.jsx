@@ -13,7 +13,7 @@ const Homepage=()=> {
   
 const [data,setData]=useState();
   useEffect(()=>{
-    axios.get("http://192.168.150.152:3000/products/retrieve-products").then((res)=>{
+    axios.get("http://192.168.150.152:3333/products/retrieve-products").then((res)=>{
         console.log(res.data);
         setData(res.data);
     });

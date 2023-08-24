@@ -12,7 +12,7 @@ const Customdiv=(props)=> {
   return (
     <div className="flex border border-black flex-col bg-slate-900 h-96 w-72 justify-between">
          <div className='flex h-2/3 w-3/4 bg-white border border-black hover:cursor-pointer'><a href={`/Detailpage/${data.id}`}>
-          <img src={data.productUrl[0].img1} alt='pc'/></a>
+          <img src={data.productUrl[0]} alt='pc'/></a>
           
         </div>
         <div className='flex flex-row h-1/6 w-full  bg-white font-bold'>

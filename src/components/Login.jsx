@@ -27,10 +27,10 @@ const Login=()=> {
                  </span>
                 </div>
                 <div className="flex justify-start w-5/6 "><Password className="w-60 mt-3" value={value} onChange={(e) => setValue(e.target.value)} toggleMask /></div>
-                <div className="flex flex-row mt-4 w-7/12 h-9 mr-36 justify-start">
+                <div className="flex flex-row mt-4 w-11/12 h-9 justify-start border border-black">
                   <div className="flex justify-start items-center ml-4 "><TriStateCheckbox value={value} onChange={() => setValue(value)} /></div>
-                  <div className="flex justify-start items-center text-sm w-80  h-full"><h7>Remember me</h7></div>
-                  <div className="flex justify-end items-center ml-16 hover:cursor-pointer text-blue-500 text-sm  w-72"><a href=''> <h7>Forgot Password?</h7></a></div>
+                  <div className="flex justify-start items-center text-sm w-80  h-full"><h6>Remember me</h6></div>
+                  <div className="flex justify-end items-center ml-16 hover:cursor-pointer text-blue-500 text-sm  w-72"><a href=''> <h8>Forgot Password?</h8></a></div>
                 </div>
                 <div className="flex mt-4 w-32 h-10 "><Button label="Sign in" onClick={()=>navigate("/Homepage")} /></div>
                 

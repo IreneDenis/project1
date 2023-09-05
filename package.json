@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
-    "axios": "^1.4.0",
+    "axios": "^1.5.0",
     "bootstrap": "^4.6.0",
     "primeicons": "^6.0.1",
     "primereact": "^9.6.1",
